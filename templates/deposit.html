@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <form action="/deposit" method="post">
+        <div class="form-header">
+            <p id="cash"> $$ Deposit Cash $$</p>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="deposit" placeholder="Amount to Deposit" type="number" min="0.00">
+        </div>
+        <button class="btn btn-primary" type="submit" name="deposit"> Deposit that $$$$ </button>
+    </form>
+
+
+
+
+{% endblock %}

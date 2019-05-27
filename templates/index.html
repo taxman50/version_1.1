@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Market Cap</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="5"></td>
+                <td id="total"><b> {{total | usd}} </b></td>
+            </tr>
+        </tfoot>
+            {% for investment in portfolio %}
+            </tr>
+                <td>{{investment.symbol}}</td>
+                <td>{{quotes[investment.symbol]["name"]}} </td>
+                <td>{{quotes[investment.symbol]["marketCap"] | cap}}</td>
+                <td>{{investment.number_of_shares}}</td>
+                <td>{{quotes[investment.symbol]["price"] | usd}}</td>
+                <td>{{(investment.number_of_shares * quotes[investment.symbol]["price"]) | usd }}</td>
+
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="5">CASH</td>
+                <td> {{cash | usd}} </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

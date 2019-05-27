@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    <body> A share of {{ quote.name }} ({{quote.symbol}}) costs {{ price | usd }} </body>
+
+
+    <form action="/buy" method="get" class="top-form">
+        <button class="btn btn-primary" type="submit" name="buy">Buy {{quote.symbol}} </button>
+    </form>
+
+
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Enter Stock Ticker" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit" name="quote">Check another stock</button>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+    <form action="/sell" method="post">
+        <select name="symbol" class="top-select">
+            <option value="" selected disabled hidden> Select </option>
+        {% for investment in portfolio %}
+            <option value="{{investment.symbol}}"> {{investment.symbol}} : {{investment.number_of_shares}} Shares</option>
+        {% endfor %}
+        </select>
+
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="quantity" placeholder="Shares to Sell" type="number" step="1" min="1">
+        </div>
+        <button class="btn btn-primary" type="submit" name="buy">Sell Shares </button>
+    </form>
+
+
+
+
+{% endblock %}
